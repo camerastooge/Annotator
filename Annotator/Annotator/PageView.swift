@@ -13,7 +13,6 @@ struct PDFViewRepresentable: UIViewRepresentable {
     
     func makeUIView(context: Context) -> some PDFView {
         let pdfView = makePDFView()
-        
         return pdfView
     }
     
@@ -21,8 +20,11 @@ struct PDFViewRepresentable: UIViewRepresentable {
         let pdfView = PDFView()
         pdfView.autoScales = true
         pdfView.displayDirection = .horizontal
-        pdfView.pageBreakMargins = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
+        pdfView.pageBreakMargins = UIEdgeInsets(top: 10, left: 25, bottom: 10, right: 25)
+        pdfView.displayMode = .singlePage
+        pdfView.usePageViewController(true)
         pdfView.document = PDFDocument(url: url)
+        
         
         return pdfView
     }
